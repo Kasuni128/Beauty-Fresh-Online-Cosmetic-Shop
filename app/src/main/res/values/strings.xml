@@ -1,3 +1,37 @@
 <resources>
     <string name="app_name">BeautyFresh</string>
+    <string name="title_activity_home">Home</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+    <string name="shopname">Online Cosmetic Shop</string>
+    <string name="email">beautyfresh.com</string>
+    <string name="shippingdetails">Shipment Details</string>
+    <string name="shippingfname">First Name</string>
+    <string name="shippinglname">Last Name</string>
+    <string name="sippingaddress1">Address</string>
+    <string name="shippingphoneno">Phone No</string>
+    <string name="shippingsave"><![CDATA[Save & Continue]]></string>
+
+    <string name="shippingUDfname">First Name</string>
+    <string name="shippingudlname">Last Name</string>
+    <string name="shippingfnameUD">First Name</string>
+    <string name="shippinglnameUD">Last Name</string>
+    <string name="shippingaddressUD">Address</string>
+    <string name="shippingPhoneNoUD">Phone No</string>
+    <string name="shippingupdate">Update</string>
+    <string name="shippingDelete">Delete</string>
+    <string name="shippingplaceorder">Place Order</string>
+
+
 </resources>
