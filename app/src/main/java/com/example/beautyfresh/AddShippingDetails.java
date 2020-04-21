@@ -22,6 +22,7 @@ public class AddShippingDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_shipping_details);
 
+
         firstname= findViewById(R.id.editTextShippingfnameud);
         lastname= findViewById(R.id.editTextShiiinglnameud);
         address1= findViewById(R.id.editTextShiiingaddress1ud);

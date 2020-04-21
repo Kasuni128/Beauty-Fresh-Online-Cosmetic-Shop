@@ -20,30 +20,50 @@ public class DBHandler extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
     public void onCreate(SQLiteDatabase db) {
+
         db.execSQL(SQL_CREATE_ENTRIES);
+        db.execSQL(SQL_CREATE_ENTRIES_PAYMENTDE);
     }
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // This database is only a cache for online data, so its upgrade policy is
         // to simply to discard the data and start over
         db.execSQL(SQL_DELETE_ENTRIES);
+
         onCreate(db);
     }
+
+
     public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         onUpgrade(db, oldVersion, newVersion);
     }
 
+
+
     private static final String SQL_CREATE_ENTRIES =
-            "CREATE TABLE " + Shipping.ShippingDetails.TABLE_NAME + " (" +
-                    Shipping.ShippingDetails._ID + " INTEGER PRIMARY KEY," +
-                    Shipping.ShippingDetails.COLUMN_1 + " TEXT," +
-                    Shipping.ShippingDetails.COLUMN_2 + " TEXT," +
-                    Shipping.ShippingDetails.COLUMN_3 + " TEXT," +
-                    Shipping.ShippingDetails.COLUMN_4 + " TEXT," +
-                    Shipping.ShippingDetails.COLUMN_5+ " TEXT)";
+            "CREATE TABLE " + Beauty.ShippingDetails.TABLE_NAME + " (" +
+                    Beauty.ShippingDetails._ID + " INTEGER PRIMARY KEY," +
+                    Beauty.ShippingDetails.COLUMN_1 + " TEXT," +
+                    Beauty.ShippingDetails.COLUMN_2 + " TEXT," +
+                    Beauty.ShippingDetails.COLUMN_3 + " TEXT," +
+                    Beauty.ShippingDetails.COLUMN_4 + " TEXT," +
+                    Beauty.ShippingDetails.COLUMN_5+ " TEXT)";
 
 
     private static final String SQL_DELETE_ENTRIES =
-            "DROP TABLE IF EXISTS " + Shipping.ShippingDetails.TABLE_NAME;
+            "DROP TABLE IF EXISTS " + Beauty.ShippingDetails.TABLE_NAME;
+
+    private static final String SQL_CREATE_ENTRIES_PAYMENTDE =
+            "CREATE TABLE " + Beauty.PaymentDetails.TABLE_NAME + " (" +
+                    Beauty.PaymentDetails._ID + " INTEGER PRIMARY KEY," +
+                    Beauty.PaymentDetails.COLUMN_1 + " TEXT," +
+                    Beauty.PaymentDetails.COLUMN_2 + " TEXT," +
+                    Beauty.PaymentDetails.COLUMN_3 + " TEXT," +
+                    Beauty.PaymentDetails.COLUMN_4 + " TEXT," +
+                    Beauty.PaymentDetails.COLUMN_5+ " TEXT)";
+
+
+    private static final String SQL_DELETE_ENTRIES_PAYMENTDE =
+            "DROP TABLE IF EXISTS " + Beauty.PaymentDetails.TABLE_NAME;
 
     public long addshippinginfo(String fristname , String lastname , String address1 , String address2 ,String phoneno){
         // Gets the data repository in write mode
@@ -51,13 +71,13 @@ public class DBHandler extends SQLiteOpenHelper {
 
 // Create a new map of values, where column names are the keys
         ContentValues values = new ContentValues();
-        values.put(Shipping.ShippingDetails.COLUMN_1, fristname);
-        values.put(Shipping.ShippingDetails.COLUMN_2, lastname);
-        values.put(Shipping.ShippingDetails.COLUMN_3, address1);
-        values.put(Shipping.ShippingDetails.COLUMN_4, address2);
-        values.put(Shipping.ShippingDetails.COLUMN_5, phoneno);
+        values.put(Beauty.ShippingDetails.COLUMN_1, fristname);
+        values.put(Beauty.ShippingDetails.COLUMN_2, lastname);
+        values.put(Beauty.ShippingDetails.COLUMN_3, address1);
+        values.put(Beauty.ShippingDetails.COLUMN_4, address2);
+        values.put(Beauty.ShippingDetails.COLUMN_5, phoneno);
 // Insert the new row, returning the primary key value of the new row
-        long newRowId = db.insert(Shipping.ShippingDetails.TABLE_NAME, null, values);
+        long newRowId = db.insert(Beauty.ShippingDetails.TABLE_NAME, null, values);
 
         return newRowId;
     }
@@ -69,17 +89,17 @@ public class DBHandler extends SQLiteOpenHelper {
 // New value for one column
 
         ContentValues values = new ContentValues();
-        values.put(Shipping.ShippingDetails.COLUMN_2, lastname);
-        values.put(Shipping.ShippingDetails.COLUMN_3, address1);
-        values.put(Shipping.ShippingDetails.COLUMN_4, address2);
-        values.put(Shipping.ShippingDetails.COLUMN_5, phoneno);
+        values.put(Beauty.ShippingDetails.COLUMN_2, lastname);
+        values.put(Beauty.ShippingDetails.COLUMN_3, address1);
+        values.put(Beauty.ShippingDetails.COLUMN_4, address2);
+        values.put(Beauty.ShippingDetails.COLUMN_5, phoneno);
 
 // Which row to update, based on the title
-        String selection = Shipping.ShippingDetails.COLUMN_1 + " LIKE ?";
+        String selection = Beauty.ShippingDetails.COLUMN_1 + " LIKE ?";
         String[] selectionArgs = { fristname };
 
         int count = db.update(
-                Shipping.ShippingDetails.TABLE_NAME,
+                Beauty.ShippingDetails.TABLE_NAME,
                 values,
                 selection,
                 selectionArgs);
@@ -97,11 +117,11 @@ public class DBHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
 
         // Define 'where' part of query.
-        String selection = Shipping.ShippingDetails.COLUMN_1 + " LIKE ?";
+        String selection = Beauty.ShippingDetails.COLUMN_1 + " LIKE ?";
 // Specify arguments in placeholder order.
         String[] selectionArgs = { firstname };
 // Issue SQL statement.
-        int deletedRows = db.delete(Shipping.ShippingDetails.TABLE_NAME, selection, selectionArgs);
+        int deletedRows = db.delete(Beauty.ShippingDetails.TABLE_NAME, selection, selectionArgs);
     }
 
     public List readAllinfo(String fristname){
@@ -112,23 +132,23 @@ public class DBHandler extends SQLiteOpenHelper {
 // you will actually use after this query.
         String[] projection = {
                 BaseColumns._ID,
-                Shipping.ShippingDetails.COLUMN_1,
-                Shipping.ShippingDetails.COLUMN_2,
-                Shipping.ShippingDetails.COLUMN_3,
-                Shipping.ShippingDetails.COLUMN_4,
-                Shipping.ShippingDetails.COLUMN_5
+                Beauty.ShippingDetails.COLUMN_1,
+                Beauty.ShippingDetails.COLUMN_2,
+                Beauty.ShippingDetails.COLUMN_3,
+                Beauty.ShippingDetails.COLUMN_4,
+                Beauty.ShippingDetails.COLUMN_5
         };
 
 // Filter results WHERE "title" = 'My Title'
-        String selection = Shipping.ShippingDetails.COLUMN_1 + " LIKE ?";
+        String selection = Beauty.ShippingDetails.COLUMN_1 + " LIKE ?";
         String[] selectionArgs = { fristname };
 
 // How you want the results sorted in the resulting Cursor
         String sortOrder =
-                Shipping.ShippingDetails.COLUMN_1+ " ASC";
+                Beauty.ShippingDetails.COLUMN_1+ " ASC";
 
         Cursor cursor = db.query(
-                Shipping.ShippingDetails.TABLE_NAME,   // The table to query
+                Beauty.ShippingDetails.TABLE_NAME,   // The table to query
                 projection,             // The array of columns to return (pass null to get all)
                 selection,              // The columns for the WHERE clause
                 selectionArgs,          // The values for the WHERE clause
@@ -139,11 +159,11 @@ public class DBHandler extends SQLiteOpenHelper {
 
         List shippingInfo = new ArrayList<>();
         while(cursor.moveToNext()) {
-            String user = cursor.getString(cursor.getColumnIndexOrThrow(Shipping.ShippingDetails.COLUMN_1));
-            String lastname = cursor.getString(cursor.getColumnIndexOrThrow(Shipping.ShippingDetails.COLUMN_2));
-            String address1 = cursor.getString(cursor.getColumnIndexOrThrow(Shipping.ShippingDetails.COLUMN_3));
-            String address2 = cursor.getString(cursor.getColumnIndexOrThrow(Shipping.ShippingDetails.COLUMN_4));
-            String phoneno = cursor.getString(cursor.getColumnIndexOrThrow(Shipping.ShippingDetails.COLUMN_5));
+            String user = cursor.getString(cursor.getColumnIndexOrThrow(Beauty.ShippingDetails.COLUMN_1));
+            String lastname = cursor.getString(cursor.getColumnIndexOrThrow(Beauty.ShippingDetails.COLUMN_2));
+            String address1 = cursor.getString(cursor.getColumnIndexOrThrow(Beauty.ShippingDetails.COLUMN_3));
+            String address2 = cursor.getString(cursor.getColumnIndexOrThrow(Beauty.ShippingDetails.COLUMN_4));
+            String phoneno = cursor.getString(cursor.getColumnIndexOrThrow(Beauty.ShippingDetails.COLUMN_5));
 
 
             shippingInfo.add(user);//0
@@ -158,6 +178,23 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
 
+
+    public long addpaymentcardinfo(String method , String Cardno , String valid , String CVV ,String name){
+        // Gets the data repository in write mode
+        SQLiteDatabase db = getWritableDatabase();
+
+// Create a new map of values, where column names are the keys
+        ContentValues values = new ContentValues();
+        values.put(Beauty.PaymentDetails.COLUMN_1, method);
+        values.put(Beauty.PaymentDetails.COLUMN_2, Cardno);
+        values.put(Beauty.PaymentDetails.COLUMN_3, valid);
+        values.put(Beauty.PaymentDetails.COLUMN_4, CVV);
+        values.put(Beauty.PaymentDetails.COLUMN_5, name);
+// Insert the new row, returning the primary key value of the new row
+        long newRowId = db.insert(Beauty.PaymentDetails.TABLE_NAME, null, values);
+
+        return newRowId;
+    }
 
 }
 

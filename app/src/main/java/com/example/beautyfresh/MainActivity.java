@@ -8,8 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.beautyfresh.Database.Shipping;
-
 public class MainActivity extends AppCompatActivity {
     TextView txt;
     Button btn;

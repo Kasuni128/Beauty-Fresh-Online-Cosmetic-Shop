@@ -32,6 +32,32 @@
     <string name="shippingupdate">Update</string>
     <string name="shippingDelete">Delete</string>
     <string name="shippingplaceorder">Place Order</string>
+    <string name="paymentshipping">Payment  Details</string>
+    <string name="Pay">Pay</string>
+    <string name="Reset">Reset</string>
+    <string name="viewcart">View Cart</string>
+    <string name="buyNow">Buy Now</string>
+    <string name="paymentmethod">Select Payment Method</string>
+    <string name="creditcard">Credit</string>
+    <string name="CardNo">Card Number</string>
+    <string name="Validuntil">Valid Until</string>
+    <string name="CVV">CVV</string>
+    <string name="PaymentforOrder">Payment Details</string>
+    <string name="confrimpro">Proceed to confirm</string>
+    <string name="CardNoPay">Card Number</string>
+    <string name="Validuntiill">Valid Untill</string>
+    <string name="CVV1">CVV</string>
+    <string name="Cardholder">Card Holder</string>
+    <string name="Cardhint">**** **** **** ****</string>
+    <string name="ValidMoth">Month / Year</string>
+    <string name="CVVii">***</string>
+    <string name="Holder">Your name and surname</string>
+    <string name="Debitcard">Visa Card</string>
+    <string name="CreditCard">Master</string>
+    <string name="DebitCard">Master</string>
+    <string name="master">Master Card</string>
+    <string name="MasterCard">Master Card</string>
+    <string name="VisaCard">Visa Card</string>
 
 
 </resources>

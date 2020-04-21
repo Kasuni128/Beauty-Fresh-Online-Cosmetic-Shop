@@ -17,12 +17,21 @@ import java.util.List;
 public class UpdateDeleteShipping extends AppCompatActivity {
 
     EditText firstname, lastname , address1 , address2 , phoneno ;
-    Button btnshippingUpdate,btnshippingdelete , btnshippingplaceorder;
+    Button btnshippingUpdate,btnshippingdelete , btnshippingplaceorder , btn2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_delete_shipping);
+
+        btn2 = findViewById(R.id.buttonshippingplaceOrder);
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UpdateDeleteShipping.this, AddPaymentDetails.class);
+                startActivity(intent);
+            }
+        });
 
         firstname= findViewById(R.id.editTextshippingfname);
         lastname= findViewById(R.id.editTextshippinglname);
@@ -59,10 +68,10 @@ public class UpdateDeleteShipping extends AppCompatActivity {
                 Boolean status = dbHandler.updateinfo(firstname.getText().toString(), lastname.getText().toString() , address1.getText().toString(),
                         address2.getText().toString(), phoneno.getText().toString() );
                 if (status){
-                    Toast.makeText(UpdateDeleteShipping.this, "Shipping Details Updated", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UpdateDeleteShipping.this, "Beauty Details Updated", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    Toast.makeText(UpdateDeleteShipping.this, "Shipping Details Failed", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UpdateDeleteShipping.this, "Beauty Details Failed", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -73,7 +82,7 @@ public class UpdateDeleteShipping extends AppCompatActivity {
                 DBHandler dbHandler= new DBHandler(getApplicationContext());
                 dbHandler.deleteshippinginfo(firstname.getText().toString());
 
-                Toast.makeText(UpdateDeleteShipping.this, "Shipping details Deleted", Toast.LENGTH_SHORT).show();
+                Toast.makeText(UpdateDeleteShipping.this, "Beauty details Deleted", Toast.LENGTH_SHORT).show();
 
                 firstname.setText(null);
                 lastname.setText(null);
