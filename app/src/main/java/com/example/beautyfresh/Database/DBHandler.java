@@ -12,23 +12,42 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DBHandler extends SQLiteOpenHelper {
-    // If you change the database schema, you must increment the database version.
-    public static final int DATABASE_VERSION = 1;
+
+    //public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "Database.db";
 
     public DBHandler(Context context) {
-        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+
+        super(context, DATABASE_NAME, null, 1);
     }
+
+    private static final String SQL_CREATE_ENTRIES_REGISTER =
+            "CREATE TABLE " + Beauty.Users.TABLE_NAME + " (" +
+                    Beauty.Users._ID + " INTEGER PRIMARY KEY," +
+                    Beauty.Users.COLUMN_1 + " TEXT," +
+                    Beauty.Users.COLUMN_2 + " TEXT," +
+                    Beauty.Users.COLUMN_3 + " TEXT," +
+                    Beauty.Users.COLUMN_4 + " TEXT," +
+                    Beauty.Users.COLUMN_5 + " TEXT," +
+                    Beauty.Users.COLUMN_6+ " TEXT)";
+
+
+    private static final String SQL_DELETE_ENTRIES_REGISTER =
+            "DROP TABLE IF EXISTS " + Beauty.Users.TABLE_NAME;
+
     public void onCreate(SQLiteDatabase db) {
 
         db.execSQL(SQL_CREATE_ENTRIES);
         db.execSQL(SQL_CREATE_ENTRIES_PAYMENTDE);
+
+        db.execSQL(SQL_CREATE_ENTRIES_REGISTER);
     }
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        // This database is only a cache for online data, so its upgrade policy is
-        // to simply to discard the data and start over
-        db.execSQL(SQL_DELETE_ENTRIES);
 
+        db.execSQL(SQL_DELETE_ENTRIES);
+        onCreate(db);
+
+        db.execSQL(SQL_DELETE_ENTRIES_REGISTER);
         onCreate(db);
     }
 
@@ -196,7 +215,30 @@ public class DBHandler extends SQLiteOpenHelper {
         return newRowId;
     }
 
+
+    public  long  addInfo(String username , String address ,String email ,String phoneNumber ,String password, String gender){
+
+        // Gets the data repository in write mode
+        SQLiteDatabase db = getWritableDatabase();
+
+        // Create a new map of values, where column names are the keys
+        ContentValues values = new ContentValues();
+        values.put(Beauty.Users.COLUMN_1, username);
+        values.put(Beauty.Users.COLUMN_2, address);
+        values.put(Beauty.Users.COLUMN_3, email);
+        values.put(Beauty.Users.COLUMN_4, phoneNumber);
+        values.put(Beauty.Users.COLUMN_5, password);
+        values.put(Beauty.Users.COLUMN_6, gender);
+
+        // Insert the new row, returning the primary key value of the new row
+        long newRowId = db.insert(Beauty.Users.TABLE_NAME, null, values);
+
+        return newRowId;
+    }
+
 }
+
+
 
 
 

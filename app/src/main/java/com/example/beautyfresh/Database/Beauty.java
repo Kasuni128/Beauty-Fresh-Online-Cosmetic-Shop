@@ -24,5 +24,17 @@ public class Beauty {
 
         }
 
+
+    public static class Users implements BaseColumns {
+        public static final String TABLE_NAME = "UserInfo";
+        public static final String COLUMN_1 = "userName";
+        public static final String COLUMN_2 = "address";
+        public static final String COLUMN_3 = "email";
+        public static final String COLUMN_4 = "phoneNumber";
+        public static final String COLUMN_5 = "password";
+        public static final String COLUMN_6 = "gender";
+
+    }
+
     }
 
