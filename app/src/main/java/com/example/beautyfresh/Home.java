@@ -27,7 +27,7 @@ import android.widget.TextView;
 public class Home extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-Button btn, btn1;
+Button btn, btn1,btnadmin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +53,15 @@ Button btn, btn1;
             }
         });
 
+        btnadmin = findViewById(R.id.btncollgen);
+
+        btnadmin.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Home.this, AdminPage.class);
+                startActivity( intent );
+            }
+        } );
 
 
         Toolbar toolbar = findViewById(R.id.toolbar);
