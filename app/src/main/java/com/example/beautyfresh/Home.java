@@ -46,9 +46,8 @@ Button btn, btn1,btnadmin;
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name = "bodyLoshan";
-                Intent intent = new Intent(Home.this, SucessPayment.class);
-                intent.putExtra("Name", name);
+                Intent intent = new Intent(Home.this, AddToShoppingCart.class);
+
                 startActivity(intent);
             }
         });
