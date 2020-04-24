@@ -27,13 +27,13 @@ import android.widget.TextView;
 public class Home extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-Button btn;
+Button btn, btn1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        btn = findViewById(R.id.btnhc);
+        btn = findViewById(R.id.btnhairoil);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,8 +42,16 @@ Button btn;
             }
         });
 
-
-
+        btn1 = findViewById(R.id.btnpearl);
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String name = "bodyLoshan";
+                Intent intent = new Intent(Home.this, SucessPayment.class);
+                intent.putExtra("Name", name);
+                startActivity(intent);
+            }
+        });
 
 
 
@@ -107,7 +115,7 @@ Button btn;
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-    Button btn1;
+
 
 
 }
