@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="329dp"
-        android:layout_height="136dp"
+        android:layout_width="359dp"
+        android:layout_height="87dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
@@ -26,14 +26,15 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="@string/shippingdetails"
         android:textColor="@color/colorPrimary"
-        android:textSize="30sp"
+        android:textSize="28sp"
+        android:textStyle="bold"
         app:fontFamily="serif"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
@@ -101,20 +102,20 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView12"
-        app:layout_constraintVertical_bias="0.266" />
+        app:layout_constraintVertical_bias="0.298" />
 
     <EditText
         android:id="@+id/editTextshippingfname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginRight="44dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView10"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.526"
         app:layout_constraintStart_toEndOf="@+id/textView10" />
 
     <EditText
@@ -143,7 +144,7 @@
         android:id="@+id/editTextshppingaddressline2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="44dp"
         android:layout_marginRight="44dp"
         android:ems="10"
@@ -164,16 +165,17 @@
 
     <Button
         android:id="@+id/buttonshippingUpdate"
-        android:layout_width="135dp"
-        android:layout_height="46dp"
+        android:layout_width="163dp"
+        android:layout_height="54dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:background="@color/design_default_color_secondary"
+        android:background="#4EE369"
         android:text="@string/shippingupdate"
+        android:textColor="@color/design_default_color_background"
         app:layout_constraintBottom_toTopOf="@+id/buttonshippingplaceOrder"
         app:layout_constraintEnd_toStartOf="@+id/buttonshippingDelete"
         app:layout_constraintHorizontal_bias="0.15"
@@ -183,27 +185,29 @@
 
     <Button
         android:id="@+id/buttonshippingDelete"
-        android:layout_width="135dp"
-        android:layout_height="46dp"
-        android:layout_marginEnd="52dp"
-        android:layout_marginRight="52dp"
-        android:background="@color/design_default_color_error"
+        android:layout_width="163dp"
+        android:layout_height="54dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:background="#F02449"
         android:text="@string/shippingDelete"
+        android:textColor="@color/design_default_color_background"
         app:layout_constraintBaseline_toBaselineOf="@+id/buttonshippingUpdate"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/buttonshippingplaceOrder"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
+        android:layout_width="263dp"
+        android:layout_height="54dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:background="@color/design_default_color_primary"
+        android:background="#37A3EB"
         android:text="@string/shippingplaceorder"
+        android:textColor="@color/design_default_color_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.446"
