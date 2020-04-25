@@ -39,7 +39,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
         db.execSQL(SQL_CREATE_ENTRIES);
         db.execSQL(SQL_CREATE_ENTRIES_PAYMENTDE);
-
+        db.execSQL(SQL_CREATE_ENTRIES_SHOPPINGCART);
         db.execSQL(SQL_CREATE_ENTRIES_REGISTER);
     }
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -56,7 +56,16 @@ public class DBHandler extends SQLiteOpenHelper {
         onUpgrade(db, oldVersion, newVersion);
     }
 
+    private static final String SQL_CREATE_ENTRIES_SHOPPINGCART =
+            "CREATE TABLE " + Beauty.Shoppingcart.TABLE_NAME + " (" +
+                    Beauty.Shoppingcart._ID + " INTEGER PRIMARY KEY," +
+                    Beauty.Shoppingcart.COLUMN_NAME + " TEXT," +
+                    Beauty.Shoppingcart.COLUMN_QTY + " TEXT," +
+                    Beauty.Shoppingcart.COLUMN_TOTAL + " TEXT," +
+                    Beauty.Shoppingcart.COLUMN_TIMESTAMP+ " TEXT)";
 
+    private static final String SQL_DELETE_ENTRIES_SHOPPINGCART =
+            "DROP TABLE IF EXISTS " + Beauty.Shoppingcart.TABLE_NAME;
 
     private static final String SQL_CREATE_ENTRIES =
             "CREATE TABLE " + Beauty.ShippingDetails.TABLE_NAME + " (" +
@@ -234,6 +243,41 @@ public class DBHandler extends SQLiteOpenHelper {
         long newRowId = db.insert(Beauty.Users.TABLE_NAME, null, values);
 
         return newRowId;
+    }
+
+    public long addshoppingcartinfo(String name , String qty , String price , String date){
+        // Gets the data repository in write mode
+        SQLiteDatabase db = getWritableDatabase();
+
+// Create a new map of values, where column names are the keys
+        ContentValues values = new ContentValues();
+        values.put(Beauty.Shoppingcart.COLUMN_NAME, name);
+        values.put(Beauty.Shoppingcart.COLUMN_QTY, qty);
+        values.put(Beauty.Shoppingcart.COLUMN_TOTAL, price);
+        values.put(Beauty.Shoppingcart.COLUMN_TIMESTAMP, date);
+
+// Insert the new row, returning the primary key value of the new row
+        long newRowId = db.insert(Beauty.Shoppingcart.TABLE_NAME, null, values);
+
+        return newRowId;
+    }
+
+    public Cursor getListContents(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor data = db.rawQuery("SELECT * FROM " + Beauty.Shoppingcart.TABLE_NAME,null);
+        return data;
+    }
+
+    public void deleteshoppinginfo(String name){
+
+        SQLiteDatabase db = getWritableDatabase();
+
+        // Define 'where' part of query.
+        String selection = Beauty.Shoppingcart.COLUMN_NAME + " LIKE ?";
+// Specify arguments in placeholder order.
+        String[] selectionArgs = { name };
+// Issue SQL statement.
+        int deletedRows = db.delete(Beauty.Shoppingcart.TABLE_NAME, selection, selectionArgs);
     }
 
 }

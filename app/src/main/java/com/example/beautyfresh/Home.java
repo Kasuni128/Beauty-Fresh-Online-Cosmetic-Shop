@@ -27,7 +27,7 @@ import android.widget.TextView;
 public class Home extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-Button btn, btn1,btnadmin;
+    Button btn, btn1,btnadmin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,12 +42,14 @@ Button btn, btn1,btnadmin;
             }
         });
 
+
         btn1 = findViewById(R.id.btnpearl);
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String name = "Pearl Beauty Night Face Cream";
                 Intent intent = new Intent(Home.this, AddToShoppingCart.class);
-
+                intent.putExtra("Name", name);
                 startActivity(intent);
             }
         });

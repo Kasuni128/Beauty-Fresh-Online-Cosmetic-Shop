@@ -36,5 +36,15 @@ public class Beauty {
 
     }
 
+    public static final class Shoppingcart implements BaseColumns{
+        public static final String TABLE_NAME = "shoppingcart";
+        public static final String COLUMN_NAME = "name";
+        public static final String COLUMN_QTY = "qty";
+        public static final String COLUMN_TOTAL = "total";
+        public static final String COLUMN_TIMESTAMP = "date";
+
     }
+
+
+}
 
