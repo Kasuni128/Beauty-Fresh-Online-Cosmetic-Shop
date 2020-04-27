@@ -56,7 +56,7 @@ public class ViewShoppingCart extends AppCompatActivity {
 
                     for (int item = count - 1; item >= 0; item--) {
                         if (positionchecker.get(item)) {
-                            DBHandler dbHandler = new DBHandler(getApplicationContext());
+                            DBHandler dbHandler = new DBHandler(ViewShoppingCart.this);
                             dbHandler.deleteshoppinginfo(theList.get(item));
                             Toast.makeText(ViewShoppingCart.this, "Item delete successful", Toast.LENGTH_SHORT).show();
                         }
