@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,6 +22,7 @@ public class UpdateDeleteShipping extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_delete_shipping);
 
@@ -28,8 +30,13 @@ public class UpdateDeleteShipping extends AppCompatActivity {
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(UpdateDeleteShipping.this, AddPaymentDetails.class);
-                startActivity(intent);
+                if(TextUtils.isEmpty(firstname.getText().toString())|| TextUtils.isEmpty(lastname.getText().toString())||TextUtils.isEmpty(address1.getText().toString())|| TextUtils.isEmpty(phoneno.getText().toString())){
+                    Toast.makeText(UpdateDeleteShipping.this, "fill the empty filed.", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Intent intent = new Intent(UpdateDeleteShipping.this, AddPaymentDetails.class);
+                    startActivity(intent);
+                }
             }
         });
 
@@ -40,6 +47,8 @@ public class UpdateDeleteShipping extends AppCompatActivity {
         phoneno= findViewById(R.id.editTextShippingphone);
         btnshippingUpdate= findViewById(R.id.buttonshippingUpdate);
         btnshippingdelete= findViewById(R.id.buttonshippingDelete);
+
+
         btnshippingplaceorder= findViewById(R.id.buttonshippingplaceOrder);
 
         Intent intent = getIntent();

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -44,15 +45,19 @@ public class AddPaymentDetails extends AppCompatActivity {
                 else{
                     method = "visa";
                 }
+                if(TextUtils.isEmpty(cardno.getText().toString())|| TextUtils.isEmpty(expriedate.getText().toString())||TextUtils.isEmpty(cvv.getText().toString())|| TextUtils.isEmpty(holdername.getText().toString())){
+                    Toast.makeText(AddPaymentDetails.this, "fill the empty filed.", Toast.LENGTH_SHORT).show();
+                }
+                else {
 
-                DBHandler dbHandler = new DBHandler(getApplicationContext());
-                    long newID = dbHandler.addpaymentcardinfo(method,cardno.getText().toString(),expriedate.getText().toString(),cvv.getText().toString(),holdername.getText().toString());
-                    Toast.makeText(AddPaymentDetails.this,"Payment Details Add payment ID:" + newID, Toast.LENGTH_SHORT).show();
+                    DBHandler dbHandler = new DBHandler(getApplicationContext());
+                    long newID = dbHandler.addpaymentcardinfo(method, cardno.getText().toString(), expriedate.getText().toString(), cvv.getText().toString(), holdername.getText().toString());
+                    Toast.makeText(AddPaymentDetails.this, "Payment Details Add payment ID:" + newID, Toast.LENGTH_SHORT).show();
 
-                Intent intent = new Intent(AddPaymentDetails.this,SucessPayment.class);
-                startActivity(intent);
+                    Intent intent = new Intent(AddPaymentDetails.this, SucessPayment.class);
+                    startActivity(intent);
 
-
+                }
 
             }
         });

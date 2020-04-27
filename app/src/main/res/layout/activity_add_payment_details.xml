@@ -75,18 +75,18 @@
 
     <Button
         android:id="@+id/btnProceed"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="375dp"
+        android:layout_height="44dp"
         android:layout_marginTop="12dp"
         android:layout_marginBottom="8dp"
         android:background="@color/design_default_color_primary"
         android:text="@string/confrimpro"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextCardHolder"
-        app:layout_constraintVertical_bias="0.432" />
+        app:layout_constraintVertical_bias="0.458" />
 
     <ImageView
         android:id="@+id/imageView2"

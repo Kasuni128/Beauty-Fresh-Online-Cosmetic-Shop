@@ -51,7 +51,7 @@ public class AddShippingDetails extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(TextUtils.isEmpty(firstname.getText().toString())){
+                if(TextUtils.isEmpty(firstname.getText().toString())|| TextUtils.isEmpty(lastname.getText().toString())||TextUtils.isEmpty(address1.getText().toString())|| TextUtils.isEmpty(phoneno.getText().toString())){
                     Toast.makeText(AddShippingDetails.this, "fill the empty filed.", Toast.LENGTH_SHORT).show();
                 }
                 else {
