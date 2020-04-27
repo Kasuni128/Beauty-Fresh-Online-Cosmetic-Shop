@@ -49,6 +49,8 @@ public class DBHandler extends SQLiteOpenHelper {
 
         db.execSQL(SQL_DELETE_ENTRIES_REGISTER);
         onCreate(db);
+
+
     }
 
 
@@ -279,6 +281,8 @@ public class DBHandler extends SQLiteOpenHelper {
 // Issue SQL statement.
         int deletedRows = db.delete(Beauty.Shoppingcart.TABLE_NAME, selection, selectionArgs);
     }
+
+
 
 }
 

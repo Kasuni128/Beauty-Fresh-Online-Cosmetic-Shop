@@ -1,9 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ViewShoppingCart">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#000"
+        android:gravity="center"
+        android:text="Beauty Fresh"
+        android:textColor="@color/colorAccent"
+        android:textSize="30sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#000"
+        android:gravity="center"
+        android:text="Order Price List"
+        android:textColor="@color/colorAccent"
+        android:textSize="25dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#1ec2d4"
+        android:orientation="horizontal"/>
+
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="526dp"
+        android:choiceMode="multipleChoice"/>
+
+    <Button
+        android:id="@+id/delete_in_shopping_cart_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DELETE"
+        android:textColor="@android:color/white"
+        android:background="@android:color/holo_red_dark"
+        />
+
+    <Button
+        android:id="@+id/edit_qty_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:background="@android:color/holo_green_dark"
+        android:text="Edit"
+        android:layout_marginLeft="300dp"
+
+        />
+
+
+
+</LinearLayout>
