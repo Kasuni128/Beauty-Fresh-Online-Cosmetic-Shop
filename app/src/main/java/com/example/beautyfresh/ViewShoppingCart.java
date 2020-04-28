@@ -4,7 +4,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.SparseBooleanArray;
@@ -15,7 +14,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.beautyfresh.Database.Beauty;
@@ -25,13 +23,8 @@ import java.util.ArrayList;
 
 public class ViewShoppingCart extends AppCompatActivity {
 
-    Button addNewbtn,refresh,nextprocessbtn;
+
     DBHandler myDB;
-    TextView totalampount;
-
-    int total = 0;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,23 +39,65 @@ public class ViewShoppingCart extends AppCompatActivity {
 
         while (data.moveToNext()) {
 
-
-
-            theList.add(data.getString(1));
-            theList.add(data.getString(2));
             theList.add(data.getString(3));
+            theList.add(data.getString(2));
+            theList.add(data.getString(1));
 
-            final ListAdapter listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, theList);
+            final ListAdapter listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_multiple_choice, theList);
             listView.setAdapter(listAdapter);
+
+            listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+                @Override
+                public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+
+                    SparseBooleanArray positionchecker = listView.getCheckedItemPositions();
+
+                    int count = listView.getCount();
+
+                    for (int item = count - 1; item >= 0; item--) {
+                        if (positionchecker.get(item)) {
+                            DBHandler dbHandler = new DBHandler(getApplicationContext());
+                            dbHandler.deleteshoppinginfo(theList.get(item));
+                            Toast.makeText(ViewShoppingCart.this, "Item delete successful", Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+
+                    positionchecker.clear();
+                    ((ArrayAdapter) listAdapter).notifyDataSetChanged();
+
+                    return false;
+                }
+            });
         }
 
+        //btn.setOnClickListener(new View.OnClickListener() {
+        //@Override
+        // public void onClick(View v) {
+        // Remove / Delete first item from List
+        //theList.remove(0);
+                /*
+                    notifyDataSetChanged ()
+                        Notifies the attached observers that the underlying
+                        data has been changed and any View reflecting the
+                        data set should refresh itself.
+                 */
+        //listAdapter.notifyDataSetChanged();
+        //}
+        // });
 
 
 
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(ViewShoppingCart.this, "Click Item", Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
-        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+       /* listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
 
@@ -74,8 +109,7 @@ public class ViewShoppingCart extends AppCompatActivity {
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                DBHandler dbHandler = new DBHandler(getApplicationContext());
-                                dbHandler.deleteshoppinginfo(theList.get(which_item));
+                                 theList.remove(which_item);
 
                             }
                         })
@@ -84,38 +118,8 @@ public class ViewShoppingCart extends AppCompatActivity {
 
                 return true;
             }
-        });
-
-        addNewbtn = findViewById(R.id.add_new_in_shopping_cart_btn);
-        addNewbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ViewShoppingCart.this, Home.class);
-                startActivity( intent );
-            }
-        });
-
-        refresh = findViewById(R.id.refresh_btn);
-        refresh.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ViewShoppingCart.this, ViewShoppingCart.class);
-                startActivity( intent );
-            }
-        });
-
-        nextprocessbtn = findViewById(R.id.next__btn);
-        nextprocessbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ViewShoppingCart.this, AddShippingDetails.class);
-                startActivity(intent);
-
-            }
-        });
+        });*/
 
 
     }
-
-
 }
