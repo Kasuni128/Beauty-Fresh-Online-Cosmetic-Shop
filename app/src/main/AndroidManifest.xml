@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ViewShoppingCart"></activity>
+        <activity android:name=".viewCalculatiopn"></activity>
+        <activity android:name=".ViewShoppingCart" />
         <activity android:name=".AddToShoppingCart" />
         <activity android:name=".AdminPage" />
         <activity android:name=".Register" />

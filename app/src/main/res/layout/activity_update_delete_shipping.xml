@@ -160,8 +160,8 @@
         android:layout_marginRight="44dp"
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textView13"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="435dp" />
 
     <Button
         android:id="@+id/buttonshippingUpdate"

@@ -14,6 +14,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="0dp"
         android:text="name"
+        android:textColor="@android:color/holo_red_dark"
         android:textSize="30sp" />
 
 
@@ -23,6 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"
+        android:textColor="@android:color/black"
         android:layout_below="@+id/edittext_name"
         android:layout_centerHorizontal="true"
         android:textSize="50sp"
@@ -31,8 +33,10 @@
     <Button
         android:id="@+id/button_descrease"
         android:layout_width="50dp"
-        android:layout_height="wrap_content"
+        android:layout_height="65dp"
         android:text="-"
+        android:textColor="@android:color/white"
+        android:background="@android:color/black"
         android:layout_alignBottom="@+id/textview_amount"
         android:layout_marginLeft="100dp"
         />
@@ -42,6 +46,8 @@
         android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:text="+"
+        android:textColor="@android:color/white"
+        android:background="@android:color/black"
         android:layout_alignBottom="@+id/textview_amount"
         android:layout_alignTop="@+id/textview_amount"
         android:layout_marginLeft="240sp"
@@ -68,6 +74,8 @@
         android:layout_alignTop="@+id/edittext_name"
         android:layout_marginTop="146dp"
         android:text="0"
+        android:textSize="20dp"
+        android:textColor="@android:color/black"
         android:layout_centerHorizontal="true"
         android:textAlignment="center" />
 

@@ -5,59 +5,75 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:layout_gravity="center_horizontal"
     tools:context=".ViewShoppingCart">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="#000"
-        android:gravity="center"
-        android:text="Beauty Fresh"
-        android:textColor="@color/colorAccent"
-        android:textSize="30sp" />
+
 
     <TextView
+        android:id="@+id/txtBookingCart"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="#000"
-        android:gravity="center"
-        android:text="Order Price List"
-        android:textColor="@color/colorAccent"
+        android:background="@color/colorPrimaryDark"
+        android:textAlignment="center"
+        android:text="Booking Cart"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
         android:textSize="25dp" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#1ec2d4"
-        android:orientation="horizontal"/>
 
 
     <ListView
+
         android:id="@+id/listView"
         android:layout_width="match_parent"
-        android:layout_height="526dp"
-        android:choiceMode="multipleChoice"/>
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+
+       />
+
+<LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <Button
-        android:id="@+id/delete_in_shopping_cart_btn"
+
+        android:id="@+id/refresh_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="DELETE"
+        android:textColor="@android:color/white"
+        android:background="@android:color/holo_blue_bright"
+        android:text="Refresh"
+        android:layout_weight="1"
+        />
+
+    <Button
+        android:id="@+id/next__btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:background="@color/cardview_dark_background"
+        android:text="Next"
+        android:layout_weight="1"
+
+
+        />
+
+    <Button
+
+        android:id="@+id/add_new_in_shopping_cart_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add new Item"
         android:textColor="@android:color/white"
         android:background="@android:color/holo_red_dark"
-        />
-
-    <Button
-        android:id="@+id/edit_qty_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@android:color/white"
-        android:background="@android:color/holo_green_dark"
-        android:text="Edit"
-        android:layout_marginLeft="300dp"
-
+        android:layout_weight="1"
         />
 
 
+
+
+</LinearLayout>
 
 </LinearLayout>

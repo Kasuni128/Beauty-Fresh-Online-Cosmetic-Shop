@@ -27,7 +27,7 @@ import android.widget.TextView;
 public class Home extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    Button btn, btn1,btnadmin;
+    Button btn, btn1,btn2,btn3,btn4,btnadmin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +53,41 @@ public class Home extends AppCompatActivity
                 startActivity(intent);
             }
         });
+
+        btn2 = findViewById(R.id.btncollgen);
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String name = "Collgen Body Lotion";
+                Intent intent = new Intent(Home.this, AddToShoppingCart.class);
+                intent.putExtra("Name", name);
+                startActivity(intent);
+            }
+        });
+
+        btn3 = findViewById(R.id.btnday);
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String name = "Gold Beauty Day Cream";
+                Intent intent = new Intent(Home.this, AddToShoppingCart.class);
+                intent.putExtra("Name", name);
+                startActivity(intent);
+            }
+        });
+
+        btn4 = findViewById(R.id.btnhairoil);
+        btn4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String name = "Gold Beauty Hair oil";
+                Intent intent = new Intent(Home.this, AddToShoppingCart.class);
+                intent.putExtra("Name", name);
+                startActivity(intent);
+            }
+        });
+
+
 
         btnadmin = findViewById(R.id.btncollgen);
 

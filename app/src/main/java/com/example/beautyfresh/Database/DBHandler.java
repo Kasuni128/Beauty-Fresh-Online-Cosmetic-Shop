@@ -282,6 +282,42 @@ public class DBHandler extends SQLiteOpenHelper {
         int deletedRows = db.delete(Beauty.Shoppingcart.TABLE_NAME, selection, selectionArgs);
     }
 
+    public int getSumValue(){
+        int sum=0;
+        SQLiteDatabase db = getWritableDatabase();
+        String sumQuery=String.format("SELECT SUM(%s) as Total FROM %s",Beauty.Shoppingcart.TABLE_NAME);
+        Cursor cursor=db.rawQuery(sumQuery,null);
+        if(cursor.moveToFirst())
+            sum= cursor.getInt(cursor.getColumnIndex("Total"));
+        return sum;
+    }
+
+    public boolean updateqtyinfo(String name,String qty){
+        SQLiteDatabase db = getWritableDatabase();
+
+// New value for one column
+
+        ContentValues values = new ContentValues();
+        values.put(Beauty.Shoppingcart.COLUMN_QTY, qty);
+
+
+// Which row to update, based on the title
+        String selection = Beauty.Shoppingcart.COLUMN_NAME + " LIKE ?";
+        String[] selectionArgs = { name };
+
+        int count = db.update(
+                Beauty.Shoppingcart.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+
+        if (count >= 1){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 
 
 }
