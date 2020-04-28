@@ -27,7 +27,7 @@ import android.widget.TextView;
 public class Home extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    Button btn1,btn2,btn3,btn4,btnadmin;
+    Button btn1,btn2,btn3,btn4,btnadmin,button5;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

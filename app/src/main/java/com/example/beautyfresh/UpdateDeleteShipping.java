@@ -71,16 +71,19 @@ public class UpdateDeleteShipping extends AppCompatActivity {
         btnshippingUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DBHandler dbHandler= new DBHandler(getApplicationContext());
+                if (TextUtils.isEmpty(firstname.getText().toString()) || TextUtils.isEmpty(lastname.getText().toString()) || TextUtils.isEmpty(address1.getText().toString()) || TextUtils.isEmpty(phoneno.getText().toString())) {
+                    Toast.makeText(UpdateDeleteShipping.this, "fill the empty filed.", Toast.LENGTH_SHORT).show();
+                } else {
+                    DBHandler dbHandler = new DBHandler(getApplicationContext());
 
 
-                Boolean status = dbHandler.updateinfo(firstname.getText().toString(), lastname.getText().toString() , address1.getText().toString(),
-                        address2.getText().toString(), phoneno.getText().toString() );
-                if (status){
-                    Toast.makeText(UpdateDeleteShipping.this, "Shipping Details Updated", Toast.LENGTH_SHORT).show();
-                }
-                else{
-                    Toast.makeText(UpdateDeleteShipping.this, "Shipping Details Failed", Toast.LENGTH_SHORT).show();
+                    Boolean status = dbHandler.updateinfo(firstname.getText().toString(), lastname.getText().toString(), address1.getText().toString(),
+                            address2.getText().toString(), phoneno.getText().toString());
+                    if (status) {
+                        Toast.makeText(UpdateDeleteShipping.this, "Shipping Details Updated", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(UpdateDeleteShipping.this, "Shipping Details Failed", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
