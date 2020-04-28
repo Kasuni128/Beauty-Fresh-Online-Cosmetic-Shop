@@ -292,32 +292,6 @@ public class DBHandler extends SQLiteOpenHelper {
         return sum;
     }
 
-    public boolean updateqtyinfo(String name,String qty){
-        SQLiteDatabase db = getWritableDatabase();
-
-// New value for one column
-
-        ContentValues values = new ContentValues();
-        values.put(Beauty.Shoppingcart.COLUMN_QTY, qty);
-
-
-// Which row to update, based on the title
-        String selection = Beauty.Shoppingcart.COLUMN_NAME + " LIKE ?";
-        String[] selectionArgs = { name };
-
-        int count = db.update(
-                Beauty.Shoppingcart.TABLE_NAME,
-                values,
-                selection,
-                selectionArgs);
-
-        if (count >= 1){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
 
 
 }
