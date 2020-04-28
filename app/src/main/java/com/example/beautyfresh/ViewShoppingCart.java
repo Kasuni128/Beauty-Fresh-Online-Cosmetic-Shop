@@ -43,7 +43,7 @@ public class ViewShoppingCart extends AppCompatActivity {
             theList.add(data.getString(2));
             theList.add(data.getString(1));
 
-            final ListAdapter listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_multiple_choice, theList);
+            final ListAdapter listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, theList);
             listView.setAdapter(listAdapter);
 
             listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
@@ -97,7 +97,7 @@ public class ViewShoppingCart extends AppCompatActivity {
         });
 
 
-       /* listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+       listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
 
@@ -118,7 +118,7 @@ public class ViewShoppingCart extends AppCompatActivity {
 
                 return true;
             }
-        });*/
+        });
 
 
     }
