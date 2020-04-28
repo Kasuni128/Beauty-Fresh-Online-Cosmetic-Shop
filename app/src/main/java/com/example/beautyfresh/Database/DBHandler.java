@@ -39,7 +39,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
         db.execSQL(SQL_CREATE_ENTRIES);
         db.execSQL(SQL_CREATE_ENTRIES_PAYMENTDE);
-        db.execSQL(SQL_CREATE_ENTRIES_SHOPPINGCART);
+
         db.execSQL(SQL_CREATE_ENTRIES_REGISTER);
     }
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -49,8 +49,6 @@ public class DBHandler extends SQLiteOpenHelper {
 
         db.execSQL(SQL_DELETE_ENTRIES_REGISTER);
         onCreate(db);
-
-
     }
 
 
@@ -58,16 +56,7 @@ public class DBHandler extends SQLiteOpenHelper {
         onUpgrade(db, oldVersion, newVersion);
     }
 
-    private static final String SQL_CREATE_ENTRIES_SHOPPINGCART =
-            "CREATE TABLE " + Beauty.Shoppingcart.TABLE_NAME + " (" +
-                    Beauty.Shoppingcart._ID + " INTEGER PRIMARY KEY," +
-                    Beauty.Shoppingcart.COLUMN_NAME + " TEXT," +
-                    Beauty.Shoppingcart.COLUMN_QTY + " TEXT," +
-                    Beauty.Shoppingcart.COLUMN_TOTAL + " TEXT," +
-                    Beauty.Shoppingcart.COLUMN_TIMESTAMP+ " TEXT)";
 
-    private static final String SQL_DELETE_ENTRIES_SHOPPINGCART =
-            "DROP TABLE IF EXISTS " + Beauty.Shoppingcart.TABLE_NAME;
 
     private static final String SQL_CREATE_ENTRIES =
             "CREATE TABLE " + Beauty.ShippingDetails.TABLE_NAME + " (" +
@@ -245,6 +234,13 @@ public class DBHandler extends SQLiteOpenHelper {
         long newRowId = db.insert(Beauty.Users.TABLE_NAME, null, values);
 
         return newRowId;
+    }
+    public Cursor checkUser(){
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("select * from "+ Beauty.Users.TABLE_NAME,null);
+        return res;
+
     }
 
     public long addshoppingcartinfo(String name , String qty , String price , String date){

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:orientation="vertical"
+    tools:context=".EditProfile">
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="370dp"
+        android:layout_height="39dp"
+        android:layout_margin="7dp"
+        android:text="@string/edit_profile"
+        android:textAlignment="center"
+        android:textSize="36sp" />
+
+    <EditText
+        android:id="@+id/editxtusernameEP"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="7dp"
+        android:ems="10"
+        android:hint="@string/username"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/editxtaddressEP"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="7dp"
+        android:ems="10"
+        android:hint="@string/address"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/editxtemailEP"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="7dp"
+        android:ems="10"
+        android:hint="@string/email"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/editxtphoneEP"
+        android:layout_width="375dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="7dp"
+        android:ems="10"
+        android:hint="@string/phonenumber"
+        android:inputType="date" />
+
+    <EditText
+        android:id="@+id/editxtpasswordEP"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="7dp"
+        android:ems="10"
+        android:hint="@string/password"
+        android:inputType="textPassword" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="7dp"
+        android:text="@string/gender"
+        android:textSize="24sp" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="7dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="7dp"
+            android:layout_weight="1"
+            android:checked="true"
+            android:text="@string/male"
+            android:textAlignment="viewStart" />
+
+        <RadioButton
+            android:id="@+id/radioButton4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="7dp"
+            android:layout_weight="1"
+            android:text="@string/female"
+            android:textAlignment="viewStart" />
+
+    </RadioGroup>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnHomeEP"
+        app:layout_constraintEnd_toStartOf="@+id/btnDeleteEP"
+        app:layout_constraintStart_toStartOf="@+id/btnDeleteEP"
+        app:layout_constraintTop_toTopOf="@+id/btnHomeEP">
+
+        <Button
+            android:id="@+id/btnupdateEP"
+            android:layout_width="149dp"
+            android:layout_height="47dp"
+            android:layout_margin="7dp"
+            android:layout_marginStart="7dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="9dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="13dp"
+            android:background="@drawable/button_rounded"
+            android:text="@string/update"
+            android:textColor="@color/design_default_color_background"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/btnHomeEP"
+            app:layout_constraintEnd_toStartOf="@+id/btnDeleteEP"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnDeleteEP"
+            android:layout_width="162dp"
+            android:layout_height="49dp"
+            android:layout_margin="7dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="13dp"
+            android:background="@drawable/button_rounded"
+            android:text="@string/delete"
+            android:textColor="@color/design_default_color_background"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/btnHomeEP"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btnupdateEP"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnHomeEP"
+            android:layout_width="350dp"
+            android:layout_height="39dp"
+            android:layout_margin="7dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/button_rounded"
+            android:text="@string/delete"
+            android:textColor="@color/design_default_color_on_primary"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnDeleteEP"
+            app:layout_constraintHorizontal_bias="0.588"
+            app:layout_constraintStart_toStartOf="@+id/btnDeleteEP"
+            app:layout_constraintTop_toBottomOf="@+id/btnDeleteEP" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>
