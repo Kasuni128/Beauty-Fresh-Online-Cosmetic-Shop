@@ -27,20 +27,13 @@ import android.widget.TextView;
 public class Home extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    Button btn, btn1,btn2,btn3,btn4,btnadmin;
+    Button btn1,btn2,btn3,btn4,btnadmin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        btn = findViewById(R.id.btnhairoil);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Home.this, AddShippingDetails.class);
-                startActivity(intent);
-            }
-        });
+
 
 
         btn1 = findViewById(R.id.btnpearl);
@@ -89,15 +82,7 @@ public class Home extends AppCompatActivity
 
 
 
-        btnadmin = findViewById(R.id.btncollgen);
 
-        btnadmin.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Home.this, AdminPage.class);
-                startActivity( intent );
-            }
-        } );
 
 
         Toolbar toolbar = findViewById(R.id.toolbar);

@@ -6,7 +6,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_gravity="center_horizontal"
-    tools:context=".ViewShoppingCart">
+    tools:context=".ViewShoppingCart"
+    android:background="@drawable/whiteimage"
+    >
 
 
 
@@ -14,7 +16,7 @@
         android:id="@+id/txtBookingCart"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="@color/colorPrimaryDark"
+        android:background="#CCFF0000"
         android:textAlignment="center"
         android:text="Booking Cart"
         android:textColor="@android:color/white"

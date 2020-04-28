@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    tools:context=".AddToShoppingCart">
+    tools:context=".AddToShoppingCart"
+    android:background="@drawable/back"
+    >
 
     <TextView
         android:id="@+id/edittext_name"
@@ -14,8 +16,10 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="0dp"
         android:text="name"
-        android:textColor="@android:color/holo_red_dark"
-        android:textSize="30sp" />
+        android:textColor="@android:color/white"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:background="@android:color/black"/>
 
 
 
@@ -24,10 +28,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:layout_below="@+id/edittext_name"
         android:layout_centerHorizontal="true"
         android:textSize="50sp"
+        android:textStyle="bold"
         />
 
     <Button
@@ -50,6 +55,7 @@
         android:background="@android:color/black"
         android:layout_alignBottom="@+id/textview_amount"
         android:layout_alignTop="@+id/textview_amount"
+        android:layout_marginTop="2dp"
         android:layout_marginLeft="240sp"
 
         />
@@ -75,9 +81,11 @@
         android:layout_marginTop="146dp"
         android:text="0"
         android:textSize="20dp"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:layout_centerHorizontal="true"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textStyle="bold"
+        />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview"
