@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent intent;
-                intent = new Intent(MainActivity.this, Login.class);
+                intent = new Intent(MainActivity.this, UserAdmin.class);
                 startActivity(intent);
             }
         });

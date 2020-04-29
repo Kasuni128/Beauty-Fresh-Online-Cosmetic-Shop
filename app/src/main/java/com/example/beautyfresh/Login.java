@@ -35,7 +35,6 @@ public class Login extends AppCompatActivity {
         password = findViewById(R.id.etPasswordLG);
 
         login = findViewById(R.id.btnLoginLG);
-        Adminlogin = findViewById(R.id.btnLoginAdmin);
 
 
         login.setOnClickListener(new View.OnClickListener() {
@@ -47,13 +46,6 @@ public class Login extends AppCompatActivity {
             }
         });
 
-        Adminlogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Login.this,AdminLogin.class);
-                startActivity(intent);
-            }
-        });
 
 
 

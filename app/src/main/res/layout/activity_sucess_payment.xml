@@ -5,7 +5,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/background"
     tools:context=".SucessPayment">
 
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="422dp"
+        android:layout_height="280dp"
+        app:srcCompat="@drawable/payment" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Your order was sucessfully proccessed"
+        android:textColor="@color/design_default_color_error"
+        android:textSize="42sp"
+        app:fontFamily="@font/bubblegum_sans" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="422dp"
+        android:layout_height="200dp"
+        app:srcCompat="@drawable/thanks" />
 
 </LinearLayout>
