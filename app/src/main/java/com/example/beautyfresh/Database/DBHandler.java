@@ -35,26 +35,12 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String SQL_DELETE_ENTRIES_REGISTER =
             "DROP TABLE IF EXISTS " + Beauty.Users.TABLE_NAME;
 
-    private static final String SQL_CREATE_ENTRIES_ADMIN =
-            "CREATE TABLE " + Beauty.Admin.TABLE_NAME + " (" +
-                    Beauty.Admin._ID + " INTEGER PRIMARY KEY," +
-                    Beauty.Admin.COL_1 + " TEXT," +
-                    Beauty.Admin.COL_2+ " TEXT," +
-                    Beauty.Admin.COL_3 + " TEXT," +
-                    Beauty.Admin.COL_4+ " TEXT)";
-
-
-    private static final String SQL_DELETE_ENTRIES_ADMIN =
-            "DROP TABLE IF EXISTS " + Beauty.Admin.TABLE_NAME;
-
-
     public void onCreate(SQLiteDatabase db) {
 
         db.execSQL(SQL_CREATE_ENTRIES);
         db.execSQL(SQL_CREATE_ENTRIES_PAYMENTDE);
         db.execSQL(SQL_CREATE_ENTRIES_SHOPPINGCART);
         db.execSQL(SQL_CREATE_ENTRIES_REGISTER);
-        db.execSQL(SQL_CREATE_ENTRIES_ADMIN);
     }
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
@@ -63,10 +49,6 @@ public class DBHandler extends SQLiteOpenHelper {
 
         db.execSQL(SQL_DELETE_ENTRIES_REGISTER);
         onCreate(db);
-
-        db.execSQL(SQL_DELETE_ENTRIES_ADMIN);
-        onCreate(db);
-
 
 
     }
@@ -309,73 +291,6 @@ public class DBHandler extends SQLiteOpenHelper {
             sum= cursor.getInt(cursor.getColumnIndex("Total"));
         return sum;
     }
-
-    public long insertData(String PName, String PType, String PDescription, String Price){
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-        contentValues.put( Beauty.Admin.COL_1, PName );
-        contentValues.put( Beauty.Admin.COL_2,PType );
-        contentValues.put( Beauty.Admin.COL_3, PDescription );
-        contentValues.put( Beauty.Admin.COL_4, Price );
-        long result = db.insert( Beauty.Admin.TABLE_NAME, null, contentValues );
-        return result;
-
-
-    }
-
-    public boolean updateData(String PName, String PType, String PDescription, String Price){
-        SQLiteDatabase db = getWritableDatabase();
-
-// New value for one column
-
-        ContentValues contentValues = new ContentValues();
-        //contentValues.put( Beauty.Admin.COL_1, id );
-        contentValues.put( Beauty.Admin.COL_1, PName );
-        contentValues.put( Beauty.Admin.COL_2,PType );
-        contentValues.put( Beauty.Admin.COL_3, PDescription );
-        contentValues.put( Beauty.Admin.COL_4, Price );
-
-// Which row to update, based on the title
-        String selection = Beauty.Admin.COL_1 + " LIKE ?";
-        String[] selectionArgs = { PName };
-
-        int count = db.update(
-                Beauty.Admin.TABLE_NAME,
-                contentValues,
-                selection,
-                selectionArgs);
-
-        if (count >= 1){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
-
-    public void deleteData(String PName){
-
-        SQLiteDatabase db = getWritableDatabase();
-
-        // Define 'where' part of query.
-        String selection = Beauty.Admin.COL_1 + " LIKE ?";
-// Specify arguments in placeholder order.
-        String[] selectionArgs = { PName };
-// Issue SQL statement.
-        int deletedRows = db.delete(Beauty.Admin.TABLE_NAME, selection, selectionArgs);
-    }
-
-
-
-
-
-    public Cursor getAllData(){
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery(  "select * from "+Beauty.Admin.TABLE_NAME,null);
-        return res;
-
-    }
-
 
 
 
