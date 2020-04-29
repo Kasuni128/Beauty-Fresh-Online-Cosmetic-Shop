@@ -28,6 +28,7 @@ public class Home extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     Button btn1,btn2,btn3,btn4,btnadmin,button5;
+    TextView txt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,6 +78,38 @@ public class Home extends AppCompatActivity
                 Intent intent = new Intent(Home.this, AddToShoppingCart.class);
                 intent.putExtra("Name", name);
                 startActivity(intent);
+            }
+        });
+
+        txt = findViewById(R.id.textViewedit);
+
+        txt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //String username = user.getText().toString();
+
+                //String addr = null;
+                //String mail = null;
+                // contact = null;
+                // pwd = null;
+                //String gender = null;
+
+                Intent intent = new Intent(Home.this,EditProfile.class);
+                //intent.putExtra("UserName", username);
+                //intent.putExtra("Address", addr);
+                //intent.putExtra("Email", mail);
+                //intent.putExtra("Contact No", contact);
+                //intent.putExtra("Password", pwd);
+                //intent.putExtra("Gender", gender);
+                startActivity(intent);
+
+
+
+
+
+
+
             }
         });
 

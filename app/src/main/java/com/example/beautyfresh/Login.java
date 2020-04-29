@@ -20,6 +20,7 @@ public class Login extends AppCompatActivity {
 
 
 
+
     DBHandler dbHandler;
 
 
@@ -35,19 +36,12 @@ public class Login extends AppCompatActivity {
 
         login = findViewById(R.id.btnLoginLG);
 
+
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                String username = user.getText().toString();
-
-                String addr = null;
-                String mail = null;
-                String contact = null;
-                String pwd = null;
-                String gender = null;
-
-                Cursor res = dbHandler.checkUser();
+                /*Cursor res = dbHandler.addInfo();
                 while (res.moveToNext()){
                     String name = res.getString(1);
                     if (name.equals(username)){
@@ -60,24 +54,14 @@ public class Login extends AppCompatActivity {
                     else {
                         Toast.makeText(Login.this, "Enter the valid username", Toast.LENGTH_SHORT).show();
                     }
-                }
+                }*/
 
-
-
-                Intent intent = new Intent(Login.this,EditProfile.class);
-                intent.putExtra("UserName", username);
-                intent.putExtra("Address", addr);
-                intent.putExtra("Email", mail);
-                intent.putExtra("Contact No", contact);
-                intent.putExtra("Password", pwd);
-                intent.putExtra("Gender", gender);
+                Intent intent = new Intent(Login.this,Home.class);
                 startActivity(intent);
-
-                //Intent intent = new Intent(Login.this, UserProfile.class);
-                //startActivity(intent);
-
             }
         });
+
+
 
     }
 }

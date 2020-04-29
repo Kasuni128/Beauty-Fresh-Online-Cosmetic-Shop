@@ -46,6 +46,20 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView" />
 
+            <TextView
+                android:id="@+id/textViewedit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:text="Do you want to edit your profile? Click here."
+                android:textColor="@color/colorPrimary"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/imageView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="0dp"
@@ -101,6 +115,8 @@
                             android:textColor="#FF060707"
                             android:textSize="12sp"
                             android:textStyle="bold"/>
+
+
 
                         <ImageView
                             android:id="@+id/pearlbeauty"

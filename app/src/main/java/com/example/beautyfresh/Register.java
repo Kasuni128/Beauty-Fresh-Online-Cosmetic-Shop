@@ -23,7 +23,7 @@ public class Register extends AppCompatActivity {
     RadioButton male,female;
     String gender;
 
-     DBHandler dbHandler;
+    DBHandler dbHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,17 +41,6 @@ public class Register extends AppCompatActivity {
         female =findViewById(R.id.radioButton4);
         register =findViewById(R.id.btnRegisterRE);
 
-        if (username.length() == 0) {
-            username.setError("Enter the User name");
-        } else if (address.length() == 0) {
-            address.setError("Enter the Address");
-        } else if (email.length() == 0) {
-            email.setError("Enter the Email");
-        } else if (phoneNumber.length() == 0) {
-            phoneNumber.setError("Enter the password");
-        } else if (password.length() == 0) {
-            password.setError("Enter the password");
-        }
 
 
         register.setOnClickListener(new View.OnClickListener() {
@@ -63,27 +52,30 @@ public class Register extends AppCompatActivity {
 
                 }
                 else{DBHandler dbHandler = new DBHandler(getApplicationContext());
-                    long newID = dbHandler.addshippinginfo(username.getText().toString(), address.getText().toString(), email.getText().toString(), phoneNumber.getText().toString(), password.getText().toString());
+                    long newID = dbHandler.addInfo(username.getText().toString(), address.getText().toString(), email.getText().toString(), phoneNumber.getText().toString(), password.getText().toString(),gender);
                     Toast.makeText(Register.this, "Added shipping Details." + newID, Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(Register.this,Home.class);
+                    startActivity(intent);
+
                 }
 
-                List user = dbHandler.readAllinfo(username.getText().toString());
-                String fname = user.get(0).toString();
-                String  Add= user.get(1).toString();
-                String mail = user.get(2).toString();
-                String contact = user.get(3).toString();
-                String pwd = user.get(4).toString();
+                //List user = dbHandler.readAllinfo(username.getText().toString());
+                //String fname = user.get(0).toString();
+                //String  Add= user.get(1).toString();
+                //String mail = user.get(2).toString();
+                //String contact = user.get(3).toString();
+                //String pwd = user.get(4).toString();
 
-                Intent intent = new Intent(Register.this, EditProfile.class);
-                intent.putExtra("First Name", fname);
-                intent.putExtra("Last Name", Add);
-                intent.putExtra("Address Line 1", mail);
-                intent.putExtra("Address Line 2", contact);
-                intent.putExtra("Phone No", pwd
-                );
+                //Intent intent = new Intent(Register.this, EditProfile.class);
+                //intent.putExtra("First Name", fname);
+                //intent.putExtra("Last Name", Add);
+                //intent.putExtra("Address Line 1", mail);
+                //intent.putExtra("Address Line 2", contact);
+                //intent.putExtra("Phone No", pwd
+                //);
 
 
-                long newID = dbHandler.addInfo(fname, Add, mail, contact, pwd, gender);
+                /*long newID = dbHandler.addInfo(fname, Add, mail, contact, pwd, gender);
 
                 if (newID > 0){
                     Toast.makeText(Register.this, "User Added. User ID: "+newID, Toast.LENGTH_SHORT).show();
@@ -92,7 +84,7 @@ public class Register extends AppCompatActivity {
                 }
                 else {
                     Toast.makeText(Register.this, "User Not Added.", Toast.LENGTH_SHORT).show();
-                }
+                }*/
             }
         });
 

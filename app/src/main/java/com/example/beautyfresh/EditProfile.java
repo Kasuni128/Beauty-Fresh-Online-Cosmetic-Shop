@@ -65,7 +65,7 @@ public class EditProfile extends AppCompatActivity {
                 DBHandler dbHandler= new DBHandler(getApplicationContext());
 
 
-                
+
                 Boolean status = dbHandler.updateinfo(username.getText().toString(), address.getText().toString() , phone.getText().toString(),
                         email.getText().toString(), passsword.getText().toString() );
                 if (status){
@@ -77,7 +77,7 @@ public class EditProfile extends AppCompatActivity {
             }
         });
 
-         btndelete.setOnClickListener(new View.OnClickListener() {
+        btndelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DBHandler dbHandler= new DBHandler(getApplicationContext());

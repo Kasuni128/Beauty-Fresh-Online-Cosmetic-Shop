@@ -56,15 +56,6 @@ public class Beauty {
 
 
 
-    public static final class Admin implements BaseColumns{
-        public static final String TABLE_NAME = "admin";
-        public static final String COL_1 = "id";
-        public static final String COL_2 = "PName";
-        public static final String COL_3 = "PType";
-        public static final String COL_4 = "PDescription";
-        public static final String COL_5 = "Price";
-    }
-
 
 }
 
