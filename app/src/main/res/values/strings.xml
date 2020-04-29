@@ -87,6 +87,7 @@
     <string name="shippingphone1hint">contact number</string>
     <string name="save">Save</string>
     <string name="update">Update</string>
+    <string name="adminlo">Login</string>
 
     <string-array name="UserType">
         <item>User</item>

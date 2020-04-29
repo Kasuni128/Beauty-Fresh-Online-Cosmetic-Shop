@@ -52,7 +52,16 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:background="@drawable/button_rounded"
-            android:text="@string/login"
+            android:text="User login"
+            android:textColor="@color/design_default_color_on_primary" />
+
+        <Button
+            android:id="@+id/btnLoginAdmin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@drawable/button_rounded"
+            android:text="Admin login"
             android:textColor="@color/design_default_color_on_primary" />
 
 

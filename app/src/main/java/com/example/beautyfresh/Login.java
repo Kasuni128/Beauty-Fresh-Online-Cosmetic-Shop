@@ -16,7 +16,7 @@ import com.example.beautyfresh.Database.DBHandler;
 public class Login extends AppCompatActivity {
 
     EditText user, password;
-    Button login;
+    Button login,Adminlogin;
 
 
 
@@ -35,28 +35,22 @@ public class Login extends AppCompatActivity {
         password = findViewById(R.id.etPasswordLG);
 
         login = findViewById(R.id.btnLoginLG);
+        Adminlogin = findViewById(R.id.btnLoginAdmin);
 
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                /*Cursor res = dbHandler.addInfo();
-                while (res.moveToNext()){
-                    String name = res.getString(1);
-                    if (name.equals(username)){
-                        addr = res.getString(2);
-                        mail = res.getString(3);
-                        contact = res.getString(4);
-                        pwd = res.getString(5);
-                        gender = res.getString(6);
-                    }
-                    else {
-                        Toast.makeText(Login.this, "Enter the valid username", Toast.LENGTH_SHORT).show();
-                    }
-                }*/
-
                 Intent intent = new Intent(Login.this,Home.class);
+                startActivity(intent);
+            }
+        });
+
+        Adminlogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Login.this,AdminLogin.class);
                 startActivity(intent);
             }
         });

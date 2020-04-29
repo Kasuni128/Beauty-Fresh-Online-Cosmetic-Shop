@@ -11,7 +11,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="ExtraText,GoogleAppIndexingWarning">
-        <activity android:name=".Register"></activity>
+        <activity android:name=".AdminLogin"></activity>
+        <activity android:name=".Register" />
         <activity android:name=".EditProfile" />
         <activity android:name=".Login" />
         <activity android:name=".viewCalculatiopn" />
