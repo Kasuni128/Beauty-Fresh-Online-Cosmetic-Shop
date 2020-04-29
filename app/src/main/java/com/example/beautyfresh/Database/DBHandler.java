@@ -15,11 +15,14 @@ public class DBHandler extends SQLiteOpenHelper {
 
     //public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "Database.db";
+    private String PName;
 
     public DBHandler(Context context) {
 
         super(context, DATABASE_NAME, null, 1);
     }
+
+
 
     private static final String SQL_CREATE_ENTRIES_REGISTER =
             "CREATE TABLE " + Beauty.Users.TABLE_NAME + " (" +
@@ -41,6 +44,8 @@ public class DBHandler extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_ENTRIES_PAYMENTDE);
         db.execSQL(SQL_CREATE_ENTRIES_SHOPPINGCART);
         db.execSQL(SQL_CREATE_ENTRIES_REGISTER);
+
+
     }
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
@@ -49,6 +54,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
         db.execSQL(SQL_DELETE_ENTRIES_REGISTER);
         onCreate(db);
+
 
 
     }

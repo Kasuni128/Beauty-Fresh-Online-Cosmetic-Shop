@@ -82,7 +82,7 @@ public class UpdateDeleteShipping extends AppCompatActivity {
                     if (status) {
                         Toast.makeText(UpdateDeleteShipping.this, "Shipping Details Updated", Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(UpdateDeleteShipping.this, "Shipping Details Failed", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(UpdateDeleteShipping.this, "Shipping Details Update Failed", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
