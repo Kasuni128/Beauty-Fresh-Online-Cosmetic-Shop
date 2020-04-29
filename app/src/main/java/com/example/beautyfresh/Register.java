@@ -53,7 +53,7 @@ public class Register extends AppCompatActivity {
                 }
                 else{DBHandler dbHandler = new DBHandler(getApplicationContext());
                     long newID = dbHandler.addInfo(username.getText().toString(), address.getText().toString(), email.getText().toString(), phoneNumber.getText().toString(), password.getText().toString(),gender);
-                    Toast.makeText(Register.this, "Added shipping Details." + newID, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Register.this, "Added User Details." + newID, Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(Register.this,Home.class);
                     startActivity(intent);
 

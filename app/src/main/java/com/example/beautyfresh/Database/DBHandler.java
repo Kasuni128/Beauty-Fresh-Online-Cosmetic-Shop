@@ -358,8 +358,37 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
 
-    public void checkUser() {
+    public boolean updateuserinfo(String username , String address ,String email ,String phoneNumber ,String password, String gender){
+        SQLiteDatabase db = getWritableDatabase();
+
+// New value for one column
+
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put( Beauty.Users.COLUMN_1, username );
+        contentValues.put( Beauty.Users.COLUMN_2,address );
+        contentValues.put( Beauty.Users.COLUMN_3, email );
+        contentValues.put( Beauty.Users.COLUMN_4, phoneNumber );
+        contentValues.put( Beauty.Users.COLUMN_5, password );
+        contentValues.put( Beauty.Users.COLUMN_6, gender );
+// Which row to update, based on the title
+        String selection = Beauty.Users.COLUMN_1 + " LIKE ?";
+        String[] selectionArgs = { username };
+
+        int count = db.update(
+                Beauty.Users.TABLE_NAME,
+                contentValues,
+                selection,
+                selectionArgs);
+
+        if (count >= 1){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
+
 }
 
 

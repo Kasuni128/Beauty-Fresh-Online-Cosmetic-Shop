@@ -150,7 +150,7 @@
             android:layout_margin="7dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/button_rounded"
-            android:text="@string/delete"
+            android:text="Back To Home"
             android:textColor="@color/design_default_color_on_primary"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"

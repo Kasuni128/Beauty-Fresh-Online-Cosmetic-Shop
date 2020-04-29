@@ -66,13 +66,13 @@ public class EditProfile extends AppCompatActivity {
 
 
 
-                Boolean status = dbHandler.updateinfo(username.getText().toString(), address.getText().toString() , phone.getText().toString(),
-                        email.getText().toString(), passsword.getText().toString() );
+                Boolean status = dbHandler.updateuserinfo(username.getText().toString(), address.getText().toString() , phone.getText().toString(),
+                        email.getText().toString(), passsword.getText().toString(),gender );
                 if (status){
-                    Toast.makeText(EditProfile.this, "Beauty Details Updated", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EditProfile.this, "Edit Details Updated", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    Toast.makeText(EditProfile.this, "Beauty Details Failed", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EditProfile.this, "Edit Details Failed", Toast.LENGTH_SHORT).show();
                 }
             }
         });
