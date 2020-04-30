@@ -81,7 +81,7 @@ public class EditProfile extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 DBHandler dbHandler= new DBHandler(getApplicationContext());
-                dbHandler.deleteshippinginfo(username.getText().toString());
+                dbHandler.deleteinfo(username.getText().toString());
 
                 Toast.makeText(EditProfile.this, " Details Deleted", Toast.LENGTH_SHORT).show();
 

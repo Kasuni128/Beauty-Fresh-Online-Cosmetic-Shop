@@ -162,11 +162,6 @@
             android:textColor="#ffffff"
             android:textSize="22sp" />
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="361dp"
-            android:layout_height="66dp"
-            android:text="TextView" />
     </LinearLayout>
 
 

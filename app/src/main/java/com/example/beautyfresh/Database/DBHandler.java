@@ -41,6 +41,7 @@ public class DBHandler extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_ENTRIES_PAYMENTDE);
         db.execSQL(SQL_CREATE_ENTRIES_SHOPPINGCART);
         db.execSQL(SQL_CREATE_ENTRIES_REGISTER);
+        db.execSQL(SQL_CREATE_ENTRIES_ADMIN);
     }
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
@@ -50,7 +51,8 @@ public class DBHandler extends SQLiteOpenHelper {
         db.execSQL(SQL_DELETE_ENTRIES_REGISTER);
         onCreate(db);
 
-
+        db.execSQL(SQL_DELETE_ENTRIES_SHOPPINGCART);
+        onCreate(db);
     }
 
 
@@ -68,6 +70,16 @@ public class DBHandler extends SQLiteOpenHelper {
 
     private static final String SQL_DELETE_ENTRIES_SHOPPINGCART =
             "DROP TABLE IF EXISTS " + Beauty.Shoppingcart.TABLE_NAME;
+
+    private static final String SQL_CREATE_ENTRIES_ADMIN =
+            "CREATE TABLE " + Beauty.Admin.TABLE_NAME + " (" +
+                    Beauty.Admin._ID + " INTEGER PRIMARY KEY," +
+                    Beauty.Admin.COL_1 + " TEXT," +
+                    Beauty.Admin.COL_2 + " TEXT," +
+                    Beauty.Admin.COL_3 + " TEXT," +
+                    Beauty.Admin.COL_4+ " TEXT)";
+
+
 
     private static final String SQL_CREATE_ENTRIES =
             "CREATE TABLE " + Beauty.ShippingDetails.TABLE_NAME + " (" +
@@ -229,10 +241,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
     public  long  addInfo(String username , String address ,String email ,String phoneNumber ,String password, String gender){
 
-        // Gets the data repository in write mode
         SQLiteDatabase db = getWritableDatabase();
-
-        // Create a new map of values, where column names are the keys
         ContentValues values = new ContentValues();
         values.put(Beauty.Users.COLUMN_1, username);
         values.put(Beauty.Users.COLUMN_2, address);
@@ -240,25 +249,18 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(Beauty.Users.COLUMN_4, phoneNumber);
         values.put(Beauty.Users.COLUMN_5, password);
         values.put(Beauty.Users.COLUMN_6, gender);
-
-        // Insert the new row, returning the primary key value of the new row
         long newRowId = db.insert(Beauty.Users.TABLE_NAME, null, values);
 
         return newRowId;
     }
 
     public long addshoppingcartinfo(String name , String qty , String price , String date){
-        // Gets the data repository in write mode
         SQLiteDatabase db = getWritableDatabase();
-
-// Create a new map of values, where column names are the keys
         ContentValues values = new ContentValues();
         values.put(Beauty.Shoppingcart.COLUMN_NAME, name);
         values.put(Beauty.Shoppingcart.COLUMN_QTY, qty);
         values.put(Beauty.Shoppingcart.COLUMN_TOTAL, price);
         values.put(Beauty.Shoppingcart.COLUMN_TIMESTAMP, date);
-
-// Insert the new row, returning the primary key value of the new row
         long newRowId = db.insert(Beauty.Shoppingcart.TABLE_NAME, null, values);
 
         return newRowId;
@@ -271,14 +273,9 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
     public void deleteshoppinginfo(String name){
-
         SQLiteDatabase db = getWritableDatabase();
-
-        // Define 'where' part of query.
         String selection = Beauty.Shoppingcart.COLUMN_NAME + " LIKE ?";
-// Specify arguments in placeholder order.
         String[] selectionArgs = { name };
-// Issue SQL statement.
         int deletedRows = db.delete(Beauty.Shoppingcart.TABLE_NAME, selection, selectionArgs);
     }
 
@@ -291,6 +288,8 @@ public class DBHandler extends SQLiteOpenHelper {
             sum= cursor.getInt(cursor.getColumnIndex("Total"));
         return sum;
     }
+
+
     public long insertData(String PName, String PType, String PDescription, String Price){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -306,17 +305,11 @@ public class DBHandler extends SQLiteOpenHelper {
 
     public boolean updateData(String PName, String PType, String PDescription, String Price){
         SQLiteDatabase db = getWritableDatabase();
-
-// New value for one column
-
         ContentValues contentValues = new ContentValues();
-        //contentValues.put( Beauty.Admin.COL_1, id );
         contentValues.put( Beauty.Admin.COL_1, PName );
         contentValues.put( Beauty.Admin.COL_2,PType );
         contentValues.put( Beauty.Admin.COL_3, PDescription );
         contentValues.put( Beauty.Admin.COL_4, Price );
-
-// Which row to update, based on the title
         String selection = Beauty.Admin.COL_1 + " LIKE ?";
         String[] selectionArgs = { PName };
 
@@ -337,12 +330,8 @@ public class DBHandler extends SQLiteOpenHelper {
     public void deleteData(String PName){
 
         SQLiteDatabase db = getWritableDatabase();
-
-        // Define 'where' part of query.
         String selection = Beauty.Admin.COL_1 + " LIKE ?";
-// Specify arguments in placeholder order.
         String[] selectionArgs = { PName };
-// Issue SQL statement.
         int deletedRows = db.delete(Beauty.Admin.TABLE_NAME, selection, selectionArgs);
     }
 
@@ -360,18 +349,14 @@ public class DBHandler extends SQLiteOpenHelper {
 
     public boolean updateuserinfo(String username , String address ,String email ,String phoneNumber ,String password, String gender){
         SQLiteDatabase db = getWritableDatabase();
-
-// New value for one column
-
         ContentValues contentValues = new ContentValues();
-
         contentValues.put( Beauty.Users.COLUMN_1, username );
         contentValues.put( Beauty.Users.COLUMN_2,address );
         contentValues.put( Beauty.Users.COLUMN_3, email );
         contentValues.put( Beauty.Users.COLUMN_4, phoneNumber );
         contentValues.put( Beauty.Users.COLUMN_5, password );
         contentValues.put( Beauty.Users.COLUMN_6, gender );
-// Which row to update, based on the title
+
         String selection = Beauty.Users.COLUMN_1 + " LIKE ?";
         String[] selectionArgs = { username };
 
@@ -387,6 +372,14 @@ public class DBHandler extends SQLiteOpenHelper {
         else{
             return false;
         }
+    }
+
+    public void deleteinfo(String username){
+
+        SQLiteDatabase db = getWritableDatabase();
+        String selection = Beauty.Users.COLUMN_1 + " LIKE ?";
+        String[] selectionArgs = { username };
+        int deletedRows = db.delete(Beauty.Users.TABLE_NAME, selection, selectionArgs);
     }
 
 }

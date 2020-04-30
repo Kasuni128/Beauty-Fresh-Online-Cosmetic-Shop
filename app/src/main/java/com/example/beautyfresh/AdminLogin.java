@@ -19,14 +19,14 @@ public class AdminLogin extends AppCompatActivity {
         setContentView(R.layout.activity_admin_login);
 
         b1 = (Button)findViewById(R.id.button1);
-        ed1 = (EditText)findViewById(R.id.editText1);
-        ed2 = (EditText)findViewById(R.id.editText2);
+        ed1 = (EditText)findViewById(R.id.editText2);
+        ed2 = (EditText)findViewById(R.id.editText1);
 
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(ed1.getText().toString().equals("admin") &&
-                        ed2.getText().toString().equals("admin")) {
+                if(ed2.getText().toString().equals("admin") &&
+                        ed1.getText().toString().equals("admin")) {
                     Toast.makeText(getApplicationContext(),
                             "Sucess login", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(AdminLogin.this, MainAdmin.class);

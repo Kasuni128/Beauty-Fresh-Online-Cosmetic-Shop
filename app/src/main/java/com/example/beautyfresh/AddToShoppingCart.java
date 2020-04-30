@@ -39,8 +39,6 @@ public class AddToShoppingCart extends AppCompatActivity {
         setContentView(R.layout.activity_add_to_shopping_cart);
 
 
-
-        //subtotal=findViewById(R.id.textViewtotalamount);
         date = findViewById(R.id.textView8);
         text1 = findViewById(R.id.edittext_name);
         Intent intent = getIntent();

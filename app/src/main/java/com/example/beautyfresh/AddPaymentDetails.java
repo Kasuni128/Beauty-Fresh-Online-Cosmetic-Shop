@@ -57,35 +57,30 @@ public class AddPaymentDetails extends AppCompatActivity {
         proceed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //addNotification();
-
                 if(master.isChecked()){
                         method = "master";
                 }
                 else{
                     method = "visa";
                 }
-                if(TextUtils.isEmpty(cardno.getText().toString())|| TextUtils.isEmpty(expriedate.getText().toString())||TextUtils.isEmpty(cvv.getText().toString())|| TextUtils.isEmpty(holdername.getText().toString())){
+                if(TextUtils.isEmpty(cardno.getText().toString())|| TextUtils.isEmpty(expriedate.getText().toString())||TextUtils.isEmpty(cvv.getText().toString())||
+                        TextUtils.isEmpty(holdername.getText().toString())){
                     Toast.makeText(AddPaymentDetails.this, "fill the empty filed.", Toast.LENGTH_SHORT).show();
                 }
                 else {
 
                     DBHandler dbHandler = new DBHandler(getApplicationContext());
-                    long newID = dbHandler.addpaymentcardinfo(method, cardno.getText().toString(), expriedate.getText().toString(), cvv.getText().toString(), holdername.getText().toString());
+                    long newID = dbHandler.addpaymentcardinfo(method, cardno.getText().toString(), expriedate.getText().toString(),
+                            cvv.getText().toString(), holdername.getText().toString());
                     Toast.makeText(AddPaymentDetails.this, "Payment Details Add payment ID:" + newID, Toast.LENGTH_SHORT).show();
                     sendNotification();
                     Intent intent = new Intent(AddPaymentDetails.this, SucessPayment.class);
-                    startActivity(intent);
-
-                }
-
+                    startActivity(intent); }
             }
         });
     }
 
     private void sendNotification() {
-        Intent getIntent = getIntent();
-
         Intent intent = new Intent(AddPaymentDetails.this, SucessPayment.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |Intent.FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent pendingIntent = PendingIntent.getActivity(this,0,intent,0);

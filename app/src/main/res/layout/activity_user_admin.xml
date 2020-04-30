@@ -9,20 +9,9 @@
 
     <ImageView
         android:id="@+id/app_logo"
-        android:layout_width="300dp"
-        android:layout_height="100dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="54dp"
-        android:layout_marginLeft="54dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginRight="56dp"
-        android:background="#D5FA5F"
-        android:src="@drawable/applogo" />
+        android:layout_width="match_parent"
+        android:layout_height="283dp"
+        app:srcCompat="@drawable/images" />
 
 
     <Button
@@ -31,11 +20,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="17dp"
+        android:layout_marginStart="15dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:layout_marginBottom="253dp"
-        android:background="#EC1E60"
+        android:layout_marginBottom="153dp"
+        android:background="@color/colorPrimary"
         android:padding="20dp"
         android:text="User"
         android:textAllCaps="false"
@@ -50,7 +39,7 @@
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:layout_marginBottom="19dp"
-        android:background="#EC1E60"
+        android:background="@color/colorPrimary"
         android:padding="20dp"
         android:text="Admin"
         android:textAllCaps="false"
